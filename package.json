@@ -1,0 +1,17 @@
+{
+  "name": "pdf-server",
+  "version": "1.0.0",
+  "description": "Server to generate and submit PDF's",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.mjs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
