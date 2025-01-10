@@ -8,8 +8,7 @@
   "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.mjs",
-    "build": "exit 1"
+    "dev": "nodemon index.mjs"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.1.6",
