@@ -12,7 +12,6 @@
     "build": "exit 1"
   },
   "dependencies": {
-    "@david.kucsai/react-pdf-table": "^0.4.1",
     "@react-pdf/renderer": "^4.1.6",
     "cors": "^2.8.5",
     "express": "^4.21.2",
