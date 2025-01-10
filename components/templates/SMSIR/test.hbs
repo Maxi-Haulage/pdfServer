@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{formData.project}}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6">
+    <div class="max-w-4xl mx-auto bg-white rounded-md p-6">
+        <header class="text-center border-b pb-4 mb-6 bg-red-600 pt-2 pl-2">
+            <img src="https://www.maxiconstruction.co.uk/wp-content/uploads/2021/02/conslogo.png" alt="Logo1" class="mt-4">
+            <h1 class="text-2xl font-bold text-white mt-4">{{formData.project}} - Senior Manager Inspection</h1>
+            <p class="text-white">{{date}}</p>
+        </header>
+
+        <section class="mb-6">
+            <h2 class="text-lg font-semibold mb-2">Details</h2>
+            <div class="flex justify-between text-sm text-gray-600">
+                <p><span class="font-semibold">Name:</span> {{name}}</p>
+                <p><span class="font-semibold">Company:</span> Maxi Construction</p>
+                <p><span class="font-semibold">Project:</span> {{formData.project}}</p>
+            </div>
+        </section>
+
+        <section class="mb-6">
+            <ul class="space-y-4">
+                {{#each formData.questions}}
+                <li class="p-4 bg-gray-50 rounded-md shadow mt-6">
+                    <p class="font-semibold">{{name}}</p>
+                    <p class="text-gray-500 text-sm">action: {{action}}</p>
+                    <p class="text-gray-500 text-sm">comment: {{comment}}</p>
+                </li>
+                {{/each}}
+            </ul>
+    </div>
+</body>
+</html>

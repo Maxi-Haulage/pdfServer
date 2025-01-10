@@ -1,5 +1,6 @@
 import e from "express";
 import cors from "cors";
+import buildSMSIR from "./components/SMSIR.js";
 
 const app = e()
 app.use(cors())
@@ -32,10 +33,11 @@ app.get("/test", (request, response) => {
 
 app.post("/SMSIR", cors(corsOptions), function (request, response) {
   const test = request.body
-  console.log(test.questions[0].file)
+  console.log(test)
   const status = {
     "MSG": "data submitted"
   }
+  buildSMSIR(test)
   response.send(status)
 })
 
