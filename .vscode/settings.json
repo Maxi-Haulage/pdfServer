@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/002f4665-3c39-4516-afad-0c889af8ce56/resourceGroups/pdfServer/providers/Microsoft.Web/sites/pdfServer",
+    "appService.deploySubpath": "."
+}

@@ -8,7 +8,7 @@
   "main": "index.mjs",
   "scripts": {
     "dev": "nodemon index.mjs",
-    "start": "node index.mjs"
+    "start": "node ./src/index.mjs"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.1.6",
@@ -18,8 +18,8 @@
     "fs-extra": "^11.2.0",
     "handlebars": "^4.7.8",
     "luxon": "^3.5.0",
-    "pdf-parse": "^1.1.1",
-    "puppeteer": "^23.11.1"
+    "puppeteer": "^23.11.1",
+    "ws": "^8.18.0"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.17"
