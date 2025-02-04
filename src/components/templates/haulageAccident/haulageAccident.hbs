@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incident Report - Maxi Haulage</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #c00808;
+            color: white;
+            border-radius: 8px 8px 0 0;
+        }
+        .header img {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 18px;
+            color: #c00808;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #c00808;
+            padding-bottom: 5px;
+        }
+        .field {
+            margin-bottom: 15px;
+        }
+        .field-label {
+            font-weight: bold;
+        }
+        .field-value {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #c00808;
+            color: white;
+            border-radius: 0 0 8px 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://www.maxiconstruction.co.uk/wp-content/uploads/2021/02/conslogo.png" alt="Maxi Haulage Logo">
+            <h1>Maxi Haulage Incident Report</h1>
+        </div>
+
+        <div class="section">
+            <h2>General Information</h2>
+            <div class="field">
+                <span class="field-label">Depot:</span>
+                <div class="field-value">{{generalInformation.depot}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Date and Time:</span>
+                <div class="field-value">{{generalInformation.incidentDateTime}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Location:</span>
+                <div class="field-value">{{generalInformation.incidentLocation}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Employee Name:</span>
+                <div class="field-value">{{generalInformation.employeeName}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Employee Company:</span>
+                <div class="field-value">{{generalInformation.employeeCompany}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Shift Start Time:</span>
+                <div class="field-value">{{generalInformation.shiftStartTime}}</div>
+            </div>
+        </div>
+
+        {{#if (eq generalInformation.incidentType "near miss")}}
+        <div class="section">
+            <h2>Near Miss Report</h2>
+            <div class="field">
+                <span class="field-label">Environmental Conditions:</span>
+                <div class="field-value">{{nearMiss.enviromentConditionsNM}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Incident Description:</span>
+                <div class="field-value">{{nearMiss.incidentDescription}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Near Miss Category:</span>
+                <div class="field-value">{{nearMiss.nearMissCategory}}</div>
+            </div>
+            {{#if nearMiss.witnessesNM}}
+            <div class="field">
+                <span class="field-label">Witness Details:</span>
+                <div class="field-value">{{#each nearMiss.witnessDetailsNM}}{{this}} <br>{{/each}}</div>
+            </div>
+            {{/if}}
+            <div class="field">
+                <span class="field-label">Immediate Actions Taken:</span>
+                <div class="field-value">{{nearMiss.immediateActionstaken}}</div>
+            </div>
+        </div>
+        {{/if}}
+
+        {{#if (eq generalInformation.incidentType "injury")}}
+        <div class="section">
+            <h2>Injury Report</h2>
+            <div class="field">
+                <span class="field-label">Nature of Injury:</span>
+                <div class="field-value">{{injury.natureOfInjury}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Injury Description:</span>
+                <div class="field-value">{{injury.injuryDescription}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Injury Category:</span>
+                <div class="field-value">{{injury.injuryCategory}}</div>
+            </div>
+            {{#if injury.witnessesI}}
+            <div class="field">
+                <span class="field-label">Witness Details:</span>
+                <div class="field-value">{{#each injury.witnessDetailsI}}{{this}} <br>{{/each}}</div>
+            </div>
+            {{/if}}
+            <div class="field">
+                <span class="field-label">Immediate Actions Taken:</span>
+                <div class="field-value">{{injury.immediateActionstakenI}}</div>
+            </div>
+        </div>
+        {{/if}}
+
+        {{#if injury.propertyDamage}}
+        <div class="section">
+            <h2>Injury and Property Damage Report</h2>
+            <div class="field">
+                <span class="field-label">Nature of Injury:</span>
+                <div class="field-value">{{injury.natureOfInjury}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Injury Description:</span>
+                <div class="field-value">{{injury.injuryDescription}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Nature of Property Damage:</span>
+                <div class="field-value">{{propertyDamage.natureOfPropertyDamage}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Property Damage Description:</span>
+                <div class="field-value">{{propertyDamage.propertyDamageDescription}}</div>
+            </div>
+            {{#if injury.witnessesI}}
+            <div class="field">
+                <span class="field-label">Witness Details (Injury):</span>
+                <div class="field-value">{{#each injury.witnessDetailsI}}{{this}} <br>{{/each}}</div>
+            </div>
+            {{/if}}
+            {{#if propertyDamage.witnessesPD}}
+            <div class="field">
+                <span class="field-label">Witness Details (Property Damage):</span>
+                <div class="field-value">{{#each propertyDamage.witnessDetailsPD}}{{this}} <br>{{/each}}</div>
+            </div>
+            {{/if}}
+        </div>
+        {{/if}}
+
+        {{#if (eq generalInformation.incidentType "property damage")}}
+        <div class="section">
+            <h2>Property Damage Report</h2>
+            <div class="field">
+                <span class="field-label">Nature of Property Damage:</span>
+                <div class="field-value">{{propertyDamage.natureOfPropertyDamage}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Description:</span>
+                <div class="field-value">{{propertyDamage.propertyDamageDescription}}</div>
+            </div>
+            {{#if propertyDamage.witnessesPD}}
+            <div class="field">
+                <span class="field-label">Witness Details:</span>
+                <div class="field-value">{{#each propertyDamage.witnessDetailsPD}}{{this}} <br>{{/each}}</div>
+            </div>
+            {{/if}}
+        </div>
+        {{/if}}
+
+        {{#if (eq generalInformation.incidentType "unsafe act")}}
+        <div class="section">
+            <h2>Unsafe Act Report</h2>
+            <div class="field">
+                <span class="field-label">Act Description:</span>
+                <div class="field-value">{{unsafeAct.description}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Actions Taken:</span>
+                <div class="field-value">{{unsafeAct.actionsTaken}}</div>
+            </div>
+        </div>
+        {{/if}}
+
+        <div class="section">
+            <h2>Sign Off</h2>
+            <div class="field">
+                <span class="field-label">Actions Assigned To:</span>
+                <div class="field-value">{{signOff.actionsAssignedTo}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Completion Date:</span>
+                <div class="field-value">{{signOff.actionsToBeCompletedBy}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Investigator Name:</span>
+                <div class="field-value">{{signOff.investigatiorsName}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Investigator Position:</span>
+                <div class="field-value">{{signOff.investigatiorsPosition}}</div>
+            </div>
+            <div class="field">
+                <span class="field-label">Date and Time:</span>
+                <div class="field-value">{{signOff.investigatiorsDateTime}}</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Maxi Haulage. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

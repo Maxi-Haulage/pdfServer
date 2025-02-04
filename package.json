@@ -5,9 +5,9 @@
   "license": "ISC",
   "author": "",
   "type": "module",
-  "main": "index.mjs",
+  "main": "./src/index.mjs",
   "scripts": {
-    "dev": "nodemon index.mjs",
+    "dev": "nodemon",
     "start": "node ./src/index.mjs"
   },
   "dependencies": {

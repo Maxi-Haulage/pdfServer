@@ -1,6 +1,7 @@
 import e from "express";
 import cors from "cors";
 import buildSMSIR from "./components/SMSIR.js";
+import buildAccident from "./components/haulageAccident.js";
 
 const app = e()
 
@@ -37,7 +38,13 @@ app.get("/test", (request, response) => {
 
 app.post("/SMSIR",  function (req, res) {
   res.json("data submitted")
-  const test = req.body
-  buildSMSIR(test)
+  const formData = req.body
+  buildSMSIR(formData, "SMSIR")
+})
+
+app.post("/haulageAccident",  function (req, res) {
+  res.json("data submitted")
+  const formDatat = req.body
+  buildAccident(formData, "haulageAccident")
 })
 
